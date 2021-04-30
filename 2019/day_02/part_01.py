@@ -19,5 +19,5 @@ while index < len(intcodes):
         break;
     else:
         raise Exception(f'Illegal instruction: {intcodes[index]}')
-                                                                                 
+
 print("intcodes[0] = ", intcodes[0])
