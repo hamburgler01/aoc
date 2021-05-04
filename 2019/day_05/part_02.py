@@ -1,5 +1,5 @@
 def get_input():
-    return 1
+    return 5
 
 def get_op_and_pos(intcode):
     ''' Get op and position codes '''
@@ -35,6 +35,22 @@ while index < len(intcodes):
     elif op_code == 4:
         print("Output = ", intcodes[intcodes[index + 1]])
         index += 2
+    elif op_code == 5:
+        if intcodes[get_i_or_m(intcodes, index, 1, pos_codes)] != 0:
+            index = intcodes[get_i_or_m(intcodes, index, 2, pos_codes)]
+        else:
+            index += 3
+    elif op_code == 6:
+        if intcodes[get_i_or_m(intcodes, index, 1, pos_codes)] == 0:
+            index = intcodes[get_i_or_m(intcodes, index, 2, pos_codes)]
+        else:
+            index += 3
+    elif op_code == 7:
+        intcodes[get_i_or_m(intcodes, index, 3, pos_codes)] = int(intcodes[get_i_or_m(intcodes, index, 1, pos_codes)] < intcodes[get_i_or_m(intcodes, index, 2, pos_codes)])
+        index += 4
+    elif op_code == 8:
+        intcodes[get_i_or_m(intcodes, index, 3, pos_codes)] = int(intcodes[get_i_or_m(intcodes, index, 1, pos_codes)] == intcodes[get_i_or_m(intcodes, index, 2, pos_codes)])
+        index += 4
     elif op_code == 99:
         break;
     else:
