@@ -67,4 +67,4 @@ while low < high - 1:
     else:
         break
 
-print("Fuel: ", int(mid) - 1)
+print("Fuel:  ", int(mid) - 1)
